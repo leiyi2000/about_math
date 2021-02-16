@@ -11,6 +11,9 @@ def multiplication(a, b):
         raise TypeError("类型错误")
     if a == 0 or b == 0:
         return 0
+    # 保证b为较小数，减少复杂度
+    if a < b:
+        a, b = b, a
     # 将被乘数转换为二进制如 -5 : [1, 1, 0, 1], 高位为1代表负数
     b_binary = convert_to_binary(b)
     # 转换为二进制的有效位数，除去符号位
