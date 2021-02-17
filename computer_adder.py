@@ -28,6 +28,7 @@ def adder(a, b, max_len):
     carry = 0
     for i in range(max_len - 1, -1, -1):
         ans[i] = carry ^ a_binary[i] ^ b_binary[i]
+        # 低位进位数 + a(i) + b(i), 三个数中有两个为1，当前位就会产生进位信息
         carry = a_binary[i] & b_binary[i] | carry & (a_binary[i] | b_binary[i])
     return ans
 
